@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Design System — UI Component Documentation Platform */
+/* All colors are HSL */
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 220 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Brand: deep teal */
+    --primary: 174 60% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 70% 45%;
+
+    /* Sidebar */
+    --sidebar-bg: 222 28% 10%;
+    --sidebar-fg: 220 15% 80%;
+    --sidebar-fg-muted: 220 10% 50%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-active-bg: 174 40% 18%;
+    --sidebar-active-fg: 174 70% 70%;
+    --sidebar-hover-bg: 222 20% 16%;
+
+    /* Secondary UI */
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 25% 20%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 12% 50%;
+
+    --accent: 174 40% 92%;
+    --accent-foreground: 174 60% 25%;
+
+    --destructive: 0 80% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 174 60% 35%;
+
+    --radius: 0.5rem;
+
+    /* Code blocks */
+    --code-bg: 222 28% 10%;
+    --code-fg: 210 25% 88%;
+    --code-border: 222 20% 18%;
+    --code-highlight: 174 30% 16%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 28% 10%), hsl(222 25% 16%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 20% 95%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px hsl(220 25% 10% / 0.08);
+    --shadow-md: 0 4px 16px hsl(220 25% 10% / 0.10);
+    --shadow-lg: 0 8px 32px hsl(220 25% 10% / 0.12);
+    --shadow-primary: 0 4px 20px hsl(174 60% 35% / 0.25);
+
+    /* Sidebar dimensions */
+    --sidebar-width: 260px;
+    --topnav-height: 56px;
+
+    /* Sidebar (shadcn compat) */
+    --sidebar-background: 222 28% 10%;
+    --sidebar-foreground: 220 15% 80%;
+    --sidebar-primary: 174 60% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 16%;
+    --sidebar-accent-foreground: 220 15% 80%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-ring: 174 60% 35%;
+  }
+
+  .dark {
+    --background: 222 28% 8%;
+    --foreground: 210 25% 92%;
+    --card: 222 25% 11%;
+    --card-foreground: 210 25% 92%;
+    --popover: 222 25% 11%;
+    --popover-foreground: 210 25% 92%;
+    --primary: 174 65% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 210 25% 85%;
+    --muted: 222 20% 16%;
+    --muted-foreground: 220 12% 55%;
+    --accent: 174 40% 15%;
+    --accent-foreground: 174 70% 70%;
+    --border: 222 20% 18%;
+    --input: 222 20% 18%;
+    --ring: 174 65% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  }
+}
+
+@layer utilities {
+  .sidebar-bg { background-color: hsl(var(--sidebar-bg)); }
+  .sidebar-fg { color: hsl(var(--sidebar-fg)); }
+  .sidebar-border-color { border-color: hsl(var(--sidebar-border)); }
+  .sidebar-active-bg { background-color: hsl(var(--sidebar-active-bg)); }
+  .sidebar-active-fg { color: hsl(var(--sidebar-active-fg)); }
+  .sidebar-hover-bg { background-color: hsl(var(--sidebar-hover-bg)); }
+  .code-bg { background-color: hsl(var(--code-bg)); }
+  .code-fg { color: hsl(var(--code-fg)); }
+
+  .text-balance { text-wrap: balance; }
+
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
