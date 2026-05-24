@@ -76,7 +76,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <Box className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="font-semibold text-sidebar-foreground text-sm tracking-tight">
-              Sunteang UI Docs
+              Sunteang UI Documents
             </span>
           </Link>
           <button

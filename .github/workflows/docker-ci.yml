@@ -1,0 +1,39 @@
+name: React Docker CI
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm run test
+
+      - name: Build React App
+        run: npm run build
+
+      - name: Build Docker Image
+        run: docker build -t react-devops .
